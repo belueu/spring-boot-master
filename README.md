@@ -23,3 +23,4 @@
 #### Examples of using the following annotations(@):
  - @Qualifier
  - @Primary
+ - @Profile

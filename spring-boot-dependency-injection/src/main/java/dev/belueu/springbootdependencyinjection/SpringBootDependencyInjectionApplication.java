@@ -1,9 +1,6 @@
 package dev.belueu.springbootdependencyinjection;
 
-import dev.belueu.springbootdependencyinjection.controller.ConstructorInjectedController;
-import dev.belueu.springbootdependencyinjection.controller.MyController;
-import dev.belueu.springbootdependencyinjection.controller.PropertyInjectedController;
-import dev.belueu.springbootdependencyinjection.controller.SetterInjectedController;
+import dev.belueu.springbootdependencyinjection.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,11 @@ public class SpringBootDependencyInjectionApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpringBootDependencyInjectionApplication.class, args);
+
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+
+        System.out.println("---Profile Injected Service");
+        System.out.println(i18nController.sayGreeting());
 
         MyController myController = (MyController) ctx.getBean("myController");
 
