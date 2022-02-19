@@ -1,4 +1,4 @@
-package dev.belueu.springbootpetclinic.model;
+package dev.belueu.springbootpetclinicdata.model;
 
 public class Person {
 
