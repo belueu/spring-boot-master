@@ -24,3 +24,5 @@
  - @Qualifier
  - @Primary
  - @Profile
+ - @PostConstruct
+ - @PreDestroy
