@@ -20,3 +20,6 @@
 
 ## spring-boot-dependency-injection
     This app shows examples of dependency injection as it is in the core of spring framework, no dependencies needed.
+#### Examples of using the following annotations(@):
+ - @Qualifier
+ - @Primary
