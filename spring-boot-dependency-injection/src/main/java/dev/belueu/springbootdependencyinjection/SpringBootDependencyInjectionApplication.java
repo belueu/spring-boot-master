@@ -1,15 +1,16 @@
 package dev.belueu.springbootdependencyinjection;
 
+import dev.belueu.springbootdependencyinjection.config.AppConfig;
 import dev.belueu.springbootdependencyinjection.controller.*;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication
+
 public class SpringBootDependencyInjectionApplication {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringBootDependencyInjectionApplication.class, args);
+
+        ApplicationContext ctx = SpringApplication.run(AppConfig.class, args);
 
         I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 
@@ -33,5 +34,5 @@ public class SpringBootDependencyInjectionApplication {
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
     }
-
 }
+
