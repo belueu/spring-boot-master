@@ -3,6 +3,7 @@ package dev.belueu.springbootpetclinicdata.service.mapservice;
 import dev.belueu.springbootpetclinicdata.model.Owner;
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
 
+import java.util.Optional;
 import java.util.Set;
 
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
@@ -32,7 +33,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
-        return null;
+    public Optional<Owner> findByLastName(String lastName) {
+        return super.findByLastName(lastName);
     }
 }

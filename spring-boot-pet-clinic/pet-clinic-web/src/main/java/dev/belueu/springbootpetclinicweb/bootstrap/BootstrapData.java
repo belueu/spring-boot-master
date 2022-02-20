@@ -4,8 +4,6 @@ import dev.belueu.springbootpetclinicdata.model.Owner;
 import dev.belueu.springbootpetclinicdata.model.Vet;
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
 import dev.belueu.springbootpetclinicdata.service.VetService;
-import dev.belueu.springbootpetclinicdata.service.mapservice.OwnerMapService;
-import dev.belueu.springbootpetclinicdata.service.mapservice.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +13,9 @@ public class BootstrapData implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public BootstrapData() {
-        this.ownerService = new OwnerMapService();
-        this.vetService = new VetMapService();
+    public BootstrapData(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

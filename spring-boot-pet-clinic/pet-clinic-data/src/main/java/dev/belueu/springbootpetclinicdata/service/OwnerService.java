@@ -2,7 +2,9 @@ package dev.belueu.springbootpetclinicdata.service;
 
 import dev.belueu.springbootpetclinicdata.model.Owner;
 
-public interface OwnerService extends CrudService<Owner, Long>{
+import java.util.Optional;
 
-    Owner findByLastName(String lastName);
+public interface OwnerService extends CrudService<Owner, Long> {
+
+    Optional<Owner> findByLastName(String lastName);
 }

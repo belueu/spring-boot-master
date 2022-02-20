@@ -2,14 +2,11 @@ package dev.belueu.springbootpetclinicdata.service.mapservice;
 
 import dev.belueu.springbootpetclinicdata.service.CrudService;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public abstract class AbstractMapService<T, ID> implements CrudService<T, ID> {
 
-    protected Map<ID, T> map  = new HashMap<>();
+    protected Map<ID, T> map = new HashMap<>();
 
     public Set<T> findAll() {
         return new HashSet<>(map.values());
@@ -30,10 +27,13 @@ public abstract class AbstractMapService<T, ID> implements CrudService<T, ID> {
     public void delete(T object) {
         if (map.containsValue(object)) {
             map.values().remove(object);
-        }
-        else {
+        } else {
             throw new RuntimeException("Object of type: " + object + " not found");
         }
+    }
+
+    public Optional<T> findByLastName(String lastName) {
+        return map.values().stream().filter(lastN -> lastN.equals(lastName)).findFirst();
     }
 
     private ID newIdValue() {
