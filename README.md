@@ -36,6 +36,7 @@
 - @ComponentScan
 - @Configuration
 - @Bean
+- @Scope
 
 ## spring-boot-chuck-norris
 

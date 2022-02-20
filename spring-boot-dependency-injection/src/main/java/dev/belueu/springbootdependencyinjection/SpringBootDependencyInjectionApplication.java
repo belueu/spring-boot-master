@@ -2,6 +2,8 @@ package dev.belueu.springbootdependencyinjection;
 
 import dev.belueu.springbootdependencyinjection.config.AppConfig;
 import dev.belueu.springbootdependencyinjection.controller.*;
+import dev.belueu.springbootdependencyinjection.service.PrototypeBean;
+import dev.belueu.springbootdependencyinjection.service.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 
@@ -37,6 +39,17 @@ public class SpringBootDependencyInjectionApplication {
         System.out.println("---ConstructorInjectedController---");
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
+
+        System.out.println("---Bean Scope---");
+        SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean1.getMyScope());
+        SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean2.getMyScope());
+
+        PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean1.getMyScope());
+        PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean2.getMyScope());
     }
 }
 
