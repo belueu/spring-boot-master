@@ -26,3 +26,8 @@
  - @Profile
  - @PostConstruct
  - @PreDestroy
+
+## spring-boot-chuck-norris
+    This app displayes random Chuck Norris jokes and makes use of the following dependencies"
+- Spring Boot Web
+- Spring Boot Thymeleaf
