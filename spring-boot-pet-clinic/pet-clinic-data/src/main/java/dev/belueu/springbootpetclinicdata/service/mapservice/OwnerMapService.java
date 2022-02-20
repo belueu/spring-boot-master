@@ -1,10 +1,11 @@
 package dev.belueu.springbootpetclinicdata.service.mapservice;
 
 import dev.belueu.springbootpetclinicdata.model.Owner;
+import dev.belueu.springbootpetclinicdata.service.OwnerService;
 
 import java.util.Set;
 
-public class OwnerMapService extends AbstractMapService<Owner, Long> {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -28,5 +29,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> {
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

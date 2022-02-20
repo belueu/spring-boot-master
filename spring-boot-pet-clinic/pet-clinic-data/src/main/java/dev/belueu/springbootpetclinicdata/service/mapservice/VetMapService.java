@@ -1,10 +1,11 @@
 package dev.belueu.springbootpetclinicdata.service.mapservice;
 
 import dev.belueu.springbootpetclinicdata.model.Vet;
+import dev.belueu.springbootpetclinicdata.service.VetService;
 
 import java.util.Set;
 
-public class VetMapService extends AbstractMapService<Vet, Long> {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
