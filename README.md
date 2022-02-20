@@ -35,6 +35,7 @@
 - @PreDestroy
 - @ComponentScan
 - @Configuration
+- @Bean
 
 ## spring-boot-chuck-norris
 
