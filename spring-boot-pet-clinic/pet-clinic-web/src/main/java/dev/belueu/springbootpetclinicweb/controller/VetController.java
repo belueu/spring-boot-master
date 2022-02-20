@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class VetController {
 
     @RequestMapping({"","/", "/index", "/index.html"})
-    public String listVets(Model model) {
-//        model.addAttribute("vets", )
+    public String listVets() {
         return "vets/index";
     }
 }
