@@ -1,6 +1,5 @@
 package dev.belueu.springbootpetclinicdata.service;
 
-import dev.belueu.springbootpetclinicdata.model.Owner;
 import dev.belueu.springbootpetclinicdata.model.Pet;
 
 import java.util.Set;
