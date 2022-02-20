@@ -1,5 +1,7 @@
 package dev.belueu.springbootdependencyinjection.config;
 
+import dev.belueu.springbootdependencyinjection.repos.EnglishGreetingRepo;
+import dev.belueu.springbootdependencyinjection.repos.EnglishGreetingRepoImpl;
 import dev.belueu.springbootdependencyinjection.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,10 +32,15 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
+    @Bean
+    EnglishGreetingRepo englishGreetingRepo() {
+        return new EnglishGreetingRepoImpl();
+    }
+
     @Profile({"default", "EN"})
     @Bean
-    I18nEnglishGreetingService i18nService() {
-        return new I18nEnglishGreetingService();
+    I18nEnglishGreetingService i18nService(EnglishGreetingRepo englishGreetingRepo) {
+        return new I18nEnglishGreetingService(englishGreetingRepo);
     }
 
     @Profile("ES")
