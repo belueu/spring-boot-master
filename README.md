@@ -37,6 +37,8 @@
 - @Configuration
 - @Bean
 - @Scope
+- @ImportResources
+- @PropertySource
 
 ## spring-boot-chuck-norris
 

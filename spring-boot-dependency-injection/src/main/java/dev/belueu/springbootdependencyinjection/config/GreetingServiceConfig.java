@@ -1,15 +1,29 @@
 package dev.belueu.springbootdependencyinjection.config;
 
+import dev.belueu.springbootdependencyinjection.datasource.FakeDataSource;
 import dev.belueu.springbootdependencyinjection.repos.EnglishGreetingRepo;
 import dev.belueu.springbootdependencyinjection.repos.EnglishGreetingRepoImpl;
 import dev.belueu.springbootdependencyinjection.service.*;
 import dev.belueu.springbootdependencyinjection.service.pets.PetService;
 import dev.belueu.springbootdependencyinjection.service.pets.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:spring-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${belueu.username}") String username,
+                                  @Value("${belueu.password}") String password,
+                                  @Value("${belueu.jdbcURL}") String jdbcUrl) {
+        FakeDataSource dataSource = new FakeDataSource();
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setJdbcURL(jdbcUrl);
+        return dataSource;
+    }
 
     //    @Bean
     ConstructorGreetingService constructorGreetingService() {
