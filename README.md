@@ -48,6 +48,17 @@
 
 ![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-21%20at%2003.05.57.png)
 
+#### Spring Boot Application Properties
+
+    This can be done by setting the variables inside the spring boot application.properties file like so:
+
+- Remove the @PropertySource from GreetingServiceConfig
+- Remove the datasource.properties file (no longer needed)
+- Remove any Command line arguments or Environment variables previously set
+- Spring Boot context will pick up the value directly from the application.properties file
+
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-21%20at%2003.26.42.png)
+
 ## spring-boot-chuck-norris
 
     This app displayes random Chuck Norris jokes and makes use of the following dependencies"
