@@ -1,30 +1,38 @@
 package dev.belueu.springbootpetclinicdata.service.mapservice;
 
-import dev.belueu.springbootpetclinicdata.service.CrudService;
+import dev.belueu.springbootpetclinicdata.model.BaseEntity;
 
 import java.util.*;
 
-public abstract class AbstractMapService<T, ID> implements CrudService<T, ID> {
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
-    protected Map<ID, T> map = new HashMap<>();
+    protected Map<Long, T> map = new HashMap<>();
 
-    public Set<T> findAll() {
+    Set<T> findAll() {
         return new HashSet<>(map.values());
     }
 
-    public T findById(ID id) {
+    T findById(ID id) {
         return map.get(id);
     }
 
-    public T save(T object) {
-        return map.put(newIdValue(), object);
+    T save(T object) {
+        if (object != null) {
+            if (object.getId() == null) {
+                object.setId(newIdValue());
+            }
+            map.put(newIdValue(), object);
+        } else {
+            throw new RuntimeException("Object cannot be null");
+        }
+        return object;
     }
 
-    public void deleteById(ID id) {
+    void deleteById(ID id) {
         map.remove(id);
     }
 
-    public void delete(T object) {
+    void delete(T object) {
         if (map.containsValue(object)) {
             map.values().remove(object);
         } else {
@@ -32,12 +40,18 @@ public abstract class AbstractMapService<T, ID> implements CrudService<T, ID> {
         }
     }
 
-    public Optional<T> findByLastName(String lastName) {
-        return map.values().stream().filter(lastN -> lastN.equals(lastName)).findFirst();
+    Optional<T> findByLastName(String lastName) {
+        return map.values().stream().filter(lastName::equals).findFirst();
     }
 
-    private ID newIdValue() {
-        return (ID) (Long) (map.values().stream().count() + 1);
+    Long newIdValue() {
+        Long nextId = null;
+        try {
+            nextId = Collections.max(map.keySet()) + 1;
+        } catch (NoSuchElementException e) {
+            nextId = 1L;
+        }
+        return nextId;
     }
 
 }
