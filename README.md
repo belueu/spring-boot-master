@@ -42,11 +42,11 @@
 
 #### Setting Environment Variables:
 
-![](/Users/cristianbelu/Desktop/Screenshot 2022-02-21 at 03.05.33.png)
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-21%20at%2003.05.33.png)
 
 #### Setting Command Line Variables:
 
-![](/Users/cristianbelu/Desktop/Screenshot 2022-02-21 at 03.05.57.png)
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-21%20at%2003.05.57.png)
 
 ## spring-boot-chuck-norris
 
