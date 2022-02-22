@@ -48,6 +48,7 @@
 - @ImportResource
 - @PropertySource
 - @ConfigurationProperties
+- @EnableConfigurationProperties
 
 #### Setting Environment Variables:
 

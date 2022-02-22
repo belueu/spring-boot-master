@@ -1,7 +1,8 @@
 package dev.belueu.springbootdependencyinjection;
 
 import dev.belueu.springbootdependencyinjection.config.AppConfig;
-import dev.belueu.springbootdependencyinjection.config.DependencyInjectionConfiguration;
+import dev.belueu.springbootdependencyinjection.config.ConstructorConfig;
+import dev.belueu.springbootdependencyinjection.config.DependencyInjectionConfig;
 import dev.belueu.springbootdependencyinjection.controller.*;
 import dev.belueu.springbootdependencyinjection.datasource.FakeDataSource;
 import dev.belueu.springbootdependencyinjection.service.PrototypeBean;
@@ -60,11 +61,17 @@ public class SpringBootDependencyInjectionApplication {
         System.out.println(fakeDataSource.getJdbcURL());
 
         System.out.println("---Config Props Bean---");
-        DependencyInjectionConfiguration dependencyInjectionConfiguration =
-                (DependencyInjectionConfiguration) ctx.getBean("dependencyInjectionConfiguration");
-        System.out.println(dependencyInjectionConfiguration.getUsername());
-        System.out.println(dependencyInjectionConfiguration.getPassword());
-        System.out.println(dependencyInjectionConfiguration.getJdbcURL());
+        DependencyInjectionConfig dependencyInjectionConfig =
+                (DependencyInjectionConfig) ctx.getBean(DependencyInjectionConfig.class);
+        System.out.println(dependencyInjectionConfig.getUsername());
+        System.out.println(dependencyInjectionConfig.getPassword());
+        System.out.println(dependencyInjectionConfig.getJdbcURL());
+
+        System.out.println("---Constructor Binding Config---");
+        ConstructorConfig constructorConfig = (ConstructorConfig) ctx.getBean(ConstructorConfig.class);
+        System.out.println(constructorConfig.getUsername());
+        System.out.println(constructorConfig.getPassword());
+        System.out.println(constructorConfig.getJdbcURL());
     }
 }
 

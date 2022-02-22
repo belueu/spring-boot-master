@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @ConfigurationProperties("belueu")
 @Configuration
-public class DependencyInjectionConfiguration {
+public class DependencyInjectionConfig {
     private String username;
     private String password;
     private String jdbcURL;

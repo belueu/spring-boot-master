@@ -6,8 +6,10 @@ import dev.belueu.springbootdependencyinjection.repos.EnglishGreetingRepoImpl;
 import dev.belueu.springbootdependencyinjection.service.*;
 import dev.belueu.springbootdependencyinjection.service.pets.PetService;
 import dev.belueu.springbootdependencyinjection.service.pets.PetServiceFactory;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(ConstructorConfig.class)
 @PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:spring-config.xml")
 @Configuration
@@ -15,11 +17,11 @@ public class GreetingServiceConfig {
 
     // Using property binding and injecting the bean with the properties binding and accessing them through the injected bean
     @Bean
-    FakeDataSource fakeDataSource(DependencyInjectionConfiguration dependencyInjectionConfiguration) {
+    FakeDataSource fakeDataSource(DependencyInjectionConfig dependencyInjectionConfig) {
         FakeDataSource dataSource = new FakeDataSource();
-        dataSource.setUsername(dependencyInjectionConfiguration.getUsername());
-        dataSource.setPassword(dependencyInjectionConfiguration.getPassword());
-        dataSource.setJdbcURL(dependencyInjectionConfiguration.getJdbcURL());
+        dataSource.setUsername(dependencyInjectionConfig.getUsername());
+        dataSource.setPassword(dependencyInjectionConfig.getPassword());
+        dataSource.setJdbcURL(dependencyInjectionConfig.getJdbcURL());
         return dataSource;
     }
 
