@@ -1,7 +1,19 @@
 spring:
   profiles:
-    active: dog, EN, dev
+    active: dog, EN, test
 belueu:
   username: YmlUserName
   password: YmlPassword
   jdbcURL: YmlSomeDBUrl
+
+# '---' represent the end of the current file ('---' act as a separator)
+# Using '---' inside a .yml file allows for one single file containing all configurations
+---
+belueu:
+  username: YmlProdUserName
+  password: YmlProdPassword
+  jdbcURL: YmlProdUrl
+spring:
+  config:
+    activate:
+      on-profile: prod
