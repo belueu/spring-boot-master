@@ -1,6 +1,6 @@
 # Maven Multi-Module Project
 
-[spring-boot-web-app](README.md/#spring-boot-web-app)
+[spring-boot-web-app](README.md/##spring-boot-web-app)
 
 spring-boot-pet-clinic
 
