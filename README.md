@@ -1,12 +1,12 @@
 # Maven Multi-Module Project
 
-> [spring-boot-web-app](README.md/#spring-boot-web-app): Link to description
+> [spring-boot-web-app](README.md/#spring-boot-web-app): simple web app example
 
-> [spring-boot-pet-clinic](README.md/#spring-boot-pet-clinic): Link to description
+> [spring-boot-pet-clinic](README.md/#spring-boot-pet-clinic): mvc complex web app example
 
-> [spring-boot-dependency-injection](README.md/#spring-boot-dependency-injection): Link to description
+> [spring-boot-dependency-injection](README.md/#spring-boot-dependency-injection): dependency injection examples
 
-> [spring-boot-chuck-norris](README.md/#spring-boot-chuck-norris): Link to description
+> [spring-boot-chuck-norris](README.md/#spring-boot-chuck-norris):  simple web app example
 
 ## spring-boot-web-app
 
