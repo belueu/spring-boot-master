@@ -75,6 +75,18 @@
 
 ![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.26.24.png)
 
+#### Application.yml examples:
+
+    The same results can be achieved using .yml files that have a "json-like" structure
+
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.38.05.png)
+
+- Now spring will pick up the properties from the .yml file
+
+> ***WARNING: Use one or the other, don't use both***
+
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.41.16.png)
+
 ## spring-boot-chuck-norris
 
     This app displayes random Chuck Norris jokes and makes use of the following dependencies"
