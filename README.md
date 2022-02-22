@@ -69,7 +69,7 @@
 
 #### Setting up specific profiles for different environments:
 
-    This can be set using .properties files
+    This can be set using .properties files.
 
 - Create specific .properties file for each environment
 
@@ -85,7 +85,7 @@
 
 #### Application.yml examples:
 
-    The same results can be achieved using .yml files that have a "json-like" structure
+    The same results can be achieved using .yml files that have a "json-like" structure.
 
 ![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.38.05.png)
 
@@ -99,7 +99,7 @@
 
 ## spring-boot-chuck-norris
 
-    This app displayes random Chuck Norris jokes and makes use of the following dependencies"
+    This app displayes random Chuck Norris jokes and makes use of the following dependencies:
 
 - Spring Boot Web
 - Spring Boot Thymeleaf
