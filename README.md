@@ -59,6 +59,22 @@
 
 ![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-21%20at%2003.26.42.png)
 
+#### Setting up specific profiles for different environments:
+
+    This can be set using .properties files
+
+- Create specific .properties file for each environment
+
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.02.55.png)
+
+- Spring will pick up the properties from the file based on the active profile settings
+
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.15.03.png)
+
+- To enable the profile add it to spring.profiles.active
+
+![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.26.24.png)
+
 ## spring-boot-chuck-norris
 
     This app displayes random Chuck Norris jokes and makes use of the following dependencies"
