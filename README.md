@@ -8,6 +8,8 @@
 
 > [spring-boot-chuck-norris](README.md/#spring-boot-chuck-norris):  simple web app example
 
+> [spring-boot-recipe-app](README.md/#spring-boot-recipe-app): mvc recipe app example
+
 ## spring-boot-web-app
 
     This app is a basic MVC web app example that makes use of the following dependencies:
@@ -106,3 +108,13 @@
 
 - Spring Boot Web
 - Spring Boot Thymeleaf
+
+## spring-boot-recipe-app
+
+    This is an spring mvc web application using:
+
+- Spring Boot DevTools
+- Spring Boot Thymeleaf
+- Spring Boot Web
+- Spring Boot JPA
+- Spring Boot H2-Database
