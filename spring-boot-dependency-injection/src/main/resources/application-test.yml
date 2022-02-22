@@ -1,0 +1,4 @@
+belueu:
+  username: YmlTestUsername
+  password: YmlTestPassword
+  jdbcURL: YmlTestJdbcUrl
