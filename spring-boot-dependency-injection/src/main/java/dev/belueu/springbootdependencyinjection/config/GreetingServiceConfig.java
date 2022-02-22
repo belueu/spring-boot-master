@@ -15,15 +15,25 @@ import org.springframework.context.annotation.*;
 @Configuration
 public class GreetingServiceConfig {
 
-    // Using property binding and injecting the bean with the properties binding and accessing them through the injected bean
+    // Using constructor binding and injecting the bean with the constructor binding and accessing them through the injected bean
     @Bean
-    FakeDataSource fakeDataSource(DependencyInjectionConfig dependencyInjectionConfig) {
+    FakeDataSource fakeDataSource(ConstructorConfig constructorConfig) {
         FakeDataSource dataSource = new FakeDataSource();
-        dataSource.setUsername(dependencyInjectionConfig.getUsername());
-        dataSource.setPassword(dependencyInjectionConfig.getPassword());
-        dataSource.setJdbcURL(dependencyInjectionConfig.getJdbcURL());
+        dataSource.setUsername(constructorConfig.getUsername());
+        dataSource.setPassword(constructorConfig.getPassword());
+        dataSource.setJdbcURL(constructorConfig.getJdbcURL());
         return dataSource;
     }
+
+    // Using property binding and injecting the bean with the properties binding and accessing them through the injected bean
+//    @Bean
+//    FakeDataSource fakeDataSource(DependencyInjectionConfig dependencyInjectionConfig) {
+//        FakeDataSource dataSource = new FakeDataSource();
+//        dataSource.setUsername(dependencyInjectionConfig.getUsername());
+//        dataSource.setPassword(dependencyInjectionConfig.getPassword());
+//        dataSource.setJdbcURL(dependencyInjectionConfig.getJdbcURL());
+//        return dataSource;
+//    }
 
     // Accessing properties by value
 //    @Bean
