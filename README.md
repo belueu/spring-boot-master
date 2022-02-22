@@ -85,7 +85,7 @@
 
 > ***WARNING: Use one or the other, don't use both***
 
-> **NOTE: Application.properties supersedes Application.yml when both are present!***
+> **NOTE: Application.properties supersedes Application.yml when both are present!**
 
 ![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-22%20at%2011.41.16.png)
 
