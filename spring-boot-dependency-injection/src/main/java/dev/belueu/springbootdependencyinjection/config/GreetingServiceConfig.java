@@ -6,7 +6,6 @@ import dev.belueu.springbootdependencyinjection.repos.EnglishGreetingRepoImpl;
 import dev.belueu.springbootdependencyinjection.service.*;
 import dev.belueu.springbootdependencyinjection.service.pets.PetService;
 import dev.belueu.springbootdependencyinjection.service.pets.PetServiceFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @PropertySource("classpath:datasource.properties")
@@ -14,16 +13,27 @@ import org.springframework.context.annotation.*;
 @Configuration
 public class GreetingServiceConfig {
 
+    // Using property binding and injecting the bean with the properties binding and accessing them through the injected bean
     @Bean
-    FakeDataSource fakeDataSource(@Value("${belueu.username}") String username,
-                                  @Value("${belueu.password}") String password,
-                                  @Value("${belueu.jdbcURL}") String jdbcUrl) {
+    FakeDataSource fakeDataSource(DependencyInjectionConfiguration dependencyInjectionConfiguration) {
         FakeDataSource dataSource = new FakeDataSource();
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        dataSource.setJdbcURL(jdbcUrl);
+        dataSource.setUsername(dependencyInjectionConfiguration.getUsername());
+        dataSource.setPassword(dependencyInjectionConfiguration.getPassword());
+        dataSource.setJdbcURL(dependencyInjectionConfiguration.getJdbcURL());
         return dataSource;
     }
+
+    // Accessing properties by value
+//    @Bean
+//    FakeDataSource fakeDataSource(@Value("${belueu.username}") String username,
+//                                  @Value("${belueu.password}") String password,
+//                                  @Value("${belueu.jdbcURL}") String jdbcUrl) {
+//        FakeDataSource dataSource = new FakeDataSource();
+//        dataSource.setUsername(username);
+//        dataSource.setPassword(password);
+//        dataSource.setJdbcURL(jdbcUrl);
+//        return dataSource;
+//    }
 
     //    @Bean
     ConstructorGreetingService constructorGreetingService() {
