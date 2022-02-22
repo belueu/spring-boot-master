@@ -6,4 +6,5 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"dev.belueu.springbootdependencyinjection"})
 @SpringBootApplication
 public class AppConfig {
+
 }

@@ -1,6 +1,7 @@
 package dev.belueu.springbootdependencyinjection;
 
 import dev.belueu.springbootdependencyinjection.config.AppConfig;
+import dev.belueu.springbootdependencyinjection.config.DependencyInjectionConfiguration;
 import dev.belueu.springbootdependencyinjection.controller.*;
 import dev.belueu.springbootdependencyinjection.datasource.FakeDataSource;
 import dev.belueu.springbootdependencyinjection.service.PrototypeBean;
@@ -57,6 +58,13 @@ public class SpringBootDependencyInjectionApplication {
         System.out.println(fakeDataSource.getUsername());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getJdbcURL());
+
+        System.out.println("---Config Props Bean---");
+        DependencyInjectionConfiguration dependencyInjectionConfiguration =
+                (DependencyInjectionConfiguration) ctx.getBean("dependencyInjectionConfiguration");
+        System.out.println(dependencyInjectionConfiguration.getUsername());
+        System.out.println(dependencyInjectionConfiguration.getPassword());
+        System.out.println(dependencyInjectionConfiguration.getJdbcURL());
     }
 }
 

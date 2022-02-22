@@ -47,6 +47,7 @@
 - @Scope
 - @ImportResource
 - @PropertySource
+- @ConfigurationProperties
 
 #### Setting Environment Variables:
 
