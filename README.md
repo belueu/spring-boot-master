@@ -48,7 +48,7 @@
 
 ![](spring-boot-dependency-injection/src/main/resources/assets/Screenshot%202022-02-21%20at%2003.05.57.png)
 
-#### Spring Boot Application Properties
+#### Spring Boot Application Properties:
 
     This can be done by setting the variables inside the spring boot application.properties file like so:
 
