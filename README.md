@@ -1,12 +1,12 @@
 # Maven Multi-Module Project
 
-![spring-boot-web-app](README.md/#spring-boot-web-app)
+> [spring-boot-web-app](README.md/#spring-boot-web-app): Link to description
 
-spring-boot-pet-clinic
+> [spring-boot-pet-clinic](README.md/#spring-boot-pet-clinic): Link to description
 
-spring-boot-dependency-injection
+> [spring-boot-dependency-injection](README.md/#spring-boot-dependency-injection): Link to description
 
-spring-boot-chuck-norris
+> [spring-boot-chuck-norris](README.md/#spring-boot-chuck-norris): Link to description
 
 ## spring-boot-web-app
 
