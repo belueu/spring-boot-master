@@ -13,6 +13,8 @@
         <module>spring-boot-web-app</module>
         <module>spring-boot-pet-clinic</module>
         <module>spring-boot-dependency-injection</module>
+        <module>spring-boot-chuck-norris</module>
+        <module>spring-boot-recipe-app</module>
     </modules>
 
 </project>
