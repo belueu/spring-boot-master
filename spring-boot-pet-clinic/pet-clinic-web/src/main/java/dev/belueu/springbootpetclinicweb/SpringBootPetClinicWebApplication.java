@@ -1,8 +1,10 @@
 package dev.belueu.springbootpetclinicweb;
 
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
+import dev.belueu.springbootpetclinicdata.service.PetTypeService;
 import dev.belueu.springbootpetclinicdata.service.VetService;
 import dev.belueu.springbootpetclinicdata.service.mapservice.OwnerMapService;
+import dev.belueu.springbootpetclinicdata.service.mapservice.PetTypeMapService;
 import dev.belueu.springbootpetclinicdata.service.mapservice.VetMapService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,5 +25,10 @@ public class SpringBootPetClinicWebApplication {
     @Bean
     VetService vetService() {
         return new VetMapService();
+    }
+
+    @Bean
+    PetTypeService petTypeService() {
+        return new PetTypeMapService();
     }
 }

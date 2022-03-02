@@ -1,8 +1,10 @@
 package dev.belueu.springbootpetclinicweb.bootstrap;
 
 import dev.belueu.springbootpetclinicdata.model.Owner;
+import dev.belueu.springbootpetclinicdata.model.PetType;
 import dev.belueu.springbootpetclinicdata.model.Vet;
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
+import dev.belueu.springbootpetclinicdata.service.PetTypeService;
 import dev.belueu.springbootpetclinicdata.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,15 +16,29 @@ public class BootstrapData implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public BootstrapData(OwnerService ownerService, VetService vetService) {
+    public BootstrapData(OwnerService ownerService,
+                         VetService vetService,
+                         PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Transactional
     @Override
     public void run(String... args) throws Exception {
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
+
+        PetType dog = new PetType();
+        dog.setName("Cat");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
