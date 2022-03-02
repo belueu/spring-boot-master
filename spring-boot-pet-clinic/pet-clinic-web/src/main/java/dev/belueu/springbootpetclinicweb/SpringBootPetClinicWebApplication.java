@@ -1,9 +1,11 @@
 package dev.belueu.springbootpetclinicweb;
 
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
+import dev.belueu.springbootpetclinicdata.service.PetService;
 import dev.belueu.springbootpetclinicdata.service.PetTypeService;
 import dev.belueu.springbootpetclinicdata.service.VetService;
 import dev.belueu.springbootpetclinicdata.service.mapservice.OwnerMapService;
+import dev.belueu.springbootpetclinicdata.service.mapservice.PetMapService;
 import dev.belueu.springbootpetclinicdata.service.mapservice.PetTypeMapService;
 import dev.belueu.springbootpetclinicdata.service.mapservice.VetMapService;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +21,12 @@ public class SpringBootPetClinicWebApplication {
 
     @Bean
     OwnerService ownerService() {
-        return new OwnerMapService();
+        return new OwnerMapService(petTypeService(), petService());
+    }
+
+    @Bean
+    PetService petService() {
+        return new PetMapService();
     }
 
     @Bean

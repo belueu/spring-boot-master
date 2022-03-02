@@ -1,6 +1,7 @@
 package dev.belueu.springbootpetclinicweb.bootstrap;
 
 import dev.belueu.springbootpetclinicdata.model.Owner;
+import dev.belueu.springbootpetclinicdata.model.Pet;
 import dev.belueu.springbootpetclinicdata.model.PetType;
 import dev.belueu.springbootpetclinicdata.model.Vet;
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
@@ -10,6 +11,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Component
 public class BootstrapData implements CommandLineRunner {
@@ -42,12 +45,32 @@ public class BootstrapData implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
+        owner1.setAddress("123 Address Street");
+        owner1.setCity("Timisoara");
+        owner1.setTelephone("1234555");
+
+        Pet mikesPet = new Pet();
+        mikesPet.setName("Bandalandabad");
+        mikesPet.setPetType(savedCatPetType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.now().minus(5, ChronoUnit.MONTHS));
+        owner1.getPets().add(mikesPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("John");
         owner2.setLastName("Harley");
+        owner2.setAddress("567 Address Street");
+        owner2.setCity("Timisoara");
+        owner2.setTelephone("1234666");
+
+        Pet johnsPet = new Pet();
+        johnsPet.setName("Jakie");
+        johnsPet.setPetType(savedDogPetType);
+        johnsPet.setOwner(owner2);
+        johnsPet.setBirthDate(LocalDate.now().minus(14, ChronoUnit.MONTHS));
+        owner2.getPets().add(johnsPet);
 
         ownerService.save(owner2);
 
