@@ -1,6 +1,8 @@
 package dev.belueu.springbootpetclinicdata.service.mapservice;
 
+import dev.belueu.springbootpetclinicdata.model.Speciality;
 import dev.belueu.springbootpetclinicdata.model.Vet;
+import dev.belueu.springbootpetclinicdata.service.SpecialityService;
 import dev.belueu.springbootpetclinicdata.service.VetService;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,12 @@ import java.util.Set;
 
 @Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialityService specialityService;
+
+    public VetMapService(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
 
     @Override
     public Set<Vet> findAll() {
@@ -21,6 +29,15 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet vet) {
+        if (vet.getSpecialities().size() > 0) {
+            vet.getSpecialities().forEach(speciality -> {
+                if (speciality.getId() == null) {
+                    Speciality savedSpeciality = specialityService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+        }
+
         return super.save(vet);
     }
 
