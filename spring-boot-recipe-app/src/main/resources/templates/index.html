@@ -7,5 +7,27 @@
 <body>
 <h1 th:text="'Recipe App Index Page'">Recipe Index Page</h1>
 
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Prep Time</th>
+        <th>Cook Time</th>
+        <th>Servings</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}">Id</td>
+        <td th:text="${recipe.description}">Description</td>
+        <td th:text="${recipe.prepTime}">Prep Time</td>
+        <td th:text="${recipe.cookTime}">Cook Time</td>
+        <td th:text="${recipe.servings}">Servings</td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
