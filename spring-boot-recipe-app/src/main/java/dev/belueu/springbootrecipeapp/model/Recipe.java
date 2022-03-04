@@ -16,14 +16,23 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
-    // todo add
-    // private Difficulty difficulty;
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
     @Lob
     private Byte[] image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
     @OneToOne(cascade = CascadeType.ALL)
     private Note note;
+    @ManyToMany
+    @JoinTable(name = "recipe_category",
+            joinColumns = {
+                    @JoinColumn(name = "recipe_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "category_id")
+            })
+    private Set<Category> categories;
 
     public Long getId() {
         return id;
@@ -81,6 +90,14 @@ public class Recipe {
         this.url = url;
     }
 
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
     public Byte[] getImage() {
         return image;
     }
@@ -97,11 +114,19 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public Note getNotes() {
+    public Note getNote() {
         return note;
     }
 
-    public void setNotes(Note note) {
+    public void setNote(Note note) {
         this.note = note;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
