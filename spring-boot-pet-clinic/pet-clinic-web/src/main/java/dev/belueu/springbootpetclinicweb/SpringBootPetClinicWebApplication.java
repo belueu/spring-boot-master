@@ -37,4 +37,9 @@ public class SpringBootPetClinicWebApplication {
     SpecialityService specialityService() {
         return new SpecialityMapService();
     }
+
+    @Bean
+    VisitService visitService() {
+        return new VisitMapService();
+    }
 }
