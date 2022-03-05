@@ -8,7 +8,6 @@ import java.util.Set;
 @Table(name = "vets")
 public class Vet extends Person {
 
-    @Column(name = "specialities")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vet_speciality",
             joinColumns = {

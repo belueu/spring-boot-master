@@ -2,11 +2,13 @@ package dev.belueu.springbootpetclinicdata.service.mapservice;
 
 import dev.belueu.springbootpetclinicdata.model.Visit;
 import dev.belueu.springbootpetclinicdata.service.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "mapservice"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

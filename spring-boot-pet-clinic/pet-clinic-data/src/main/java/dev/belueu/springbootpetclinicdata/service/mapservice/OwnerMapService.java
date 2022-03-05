@@ -5,12 +5,14 @@ import dev.belueu.springbootpetclinicdata.model.Pet;
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
 import dev.belueu.springbootpetclinicdata.service.PetService;
 import dev.belueu.springbootpetclinicdata.service.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
 @Service
+@Profile({"default", "mapservice"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
