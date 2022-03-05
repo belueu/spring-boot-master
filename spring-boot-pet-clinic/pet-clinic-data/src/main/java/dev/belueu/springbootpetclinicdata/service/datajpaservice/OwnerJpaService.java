@@ -32,10 +32,6 @@ public class OwnerJpaService implements OwnerService {
 
     @Override
     public Owner save(Owner owner) {
-        System.out.println("################################");
-        System.out.println("################################");
-        System.out.println("################################");
-        System.out.println("################################");
         return ownerRepo.save(owner);
     }
 
