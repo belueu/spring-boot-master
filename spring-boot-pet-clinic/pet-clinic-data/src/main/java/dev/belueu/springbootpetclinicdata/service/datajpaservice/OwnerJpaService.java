@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-@Profile({"default", "jpaservice"})
+@Profile("jpaservice")
 public class OwnerJpaService implements OwnerService {
 
     private final OwnerRepo ownerRepo;
