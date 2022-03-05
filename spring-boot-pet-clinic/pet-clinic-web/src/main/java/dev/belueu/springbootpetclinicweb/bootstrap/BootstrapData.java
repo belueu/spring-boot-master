@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.List;
 
 @Component
 public class BootstrapData implements CommandLineRunner {
@@ -43,54 +45,57 @@ public class BootstrapData implements CommandLineRunner {
     }
 
     private void loadData() {
-        PetType cat = new PetType();
-        cat.setName("Cat");
+        PetType cat = PetType.builder().name("Cat").build();
         PetType savedCatPetType = petTypeService.save(cat);
 
-        PetType dog = new PetType();
-        dog.setName("Cat");
+        PetType dog = PetType.builder().name("Dog").build();
         PetType savedDogPetType = petTypeService.save(dog);
 
-        Speciality radiology = new Speciality();
-        radiology.setDescription("Radiology");
+        Speciality radiology = Speciality.builder().description("Radiology").build();
         Speciality savedRadiology = specialityService.save(radiology);
 
-        Speciality surgery = new Speciality();
-        surgery.setDescription("Surgery");
+        Speciality surgery = Speciality.builder().description("Surgery").build();
         Speciality savedSurgery = specialityService.save(surgery);
 
-        Speciality dentistry = new Speciality();
-        dentistry.setDescription("Dentistry");
+        Speciality dentistry = Speciality.builder().description("Dentistry").build();
         Speciality savedDentistry = specialityService.save(dentistry);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Michael");
-        owner1.setLastName("Weston");
-        owner1.setAddress("123 Address Street");
-        owner1.setCity("Timisoara");
-        owner1.setTelephone("1234555");
+        Owner owner1 = Owner.builder()
+                .firstName("Michael")
+                .lastName("Weston")
+                .address("123 Address Street")
+                .city("Timisoara")
+                .telephone("1234555")
+                .pets(new HashSet<>(List.of()))
+                .build();
 
-        Pet mikesPet = new Pet();
-        mikesPet.setName("Bandalandabad");
-        mikesPet.setPetType(savedCatPetType);
-        mikesPet.setOwner(owner1);
-        mikesPet.setBirthDate(LocalDate.now().minus(5, ChronoUnit.MONTHS));
+        Pet mikesPet = Pet.builder()
+                .name("Bandalandabad")
+                .birthDate(LocalDate.now().minus(5, ChronoUnit.MONTHS))
+                .petType(savedCatPetType)
+                .owner(owner1)
+                .build();
+
         owner1.getPets().add(mikesPet);
 
         ownerService.save(owner1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("John");
-        owner2.setLastName("Harley");
-        owner2.setAddress("567 Address Street");
-        owner2.setCity("Timisoara");
-        owner2.setTelephone("1234666");
+        Owner owner2 = Owner.builder()
+                .firstName("John")
+                .lastName("Harley")
+                .address("567 Address Street")
+                .city("Timisoara")
+                .telephone("1234666")
+                .pets(new HashSet<>(List.of()))
+                .build();
 
-        Pet johnsPet = new Pet();
-        johnsPet.setName("Jakie");
-        johnsPet.setPetType(savedDogPetType);
-        johnsPet.setOwner(owner2);
-        johnsPet.setBirthDate(LocalDate.now().minus(14, ChronoUnit.MONTHS));
+        Pet johnsPet = Pet.builder()
+                .name("Jakie")
+                .birthDate(LocalDate.now().minus(14, ChronoUnit.MONTHS))
+                .petType(savedDogPetType)
+                .owner(owner2)
+                .build();
+
         owner2.getPets().add(johnsPet);
 
         ownerService.save(owner2);
@@ -98,17 +103,19 @@ public class BootstrapData implements CommandLineRunner {
         System.out.println("Loading owners...");
         System.out.println("Number of owners loaded: " + ownerService.findAll().size());
 
-        Vet vet1 = new Vet();
-        vet1.setFirstName("Sam");
-        vet1.setLastName("Axe");
-        vet1.getSpecialities().add(savedRadiology);
+        Vet vet1 = Vet.builder()
+                .firstName("Sam")
+                .lastName("Axe")
+                .specialities(new HashSet<>(List.of(savedRadiology)))
+                .build();
 
         vetService.save(vet1);
 
-        Vet vet2 = new Vet();
-        vet2.setFirstName("Jessie");
-        vet2.setLastName("Porter");
-        vet2.getSpecialities().add(surgery);
+        Vet vet2 = Vet.builder()
+                .firstName("Jessie")
+                .lastName("Porter")
+                .specialities(new HashSet<>(List.of(savedSurgery)))
+                .build();
 
         vetService.save(vet2);
 

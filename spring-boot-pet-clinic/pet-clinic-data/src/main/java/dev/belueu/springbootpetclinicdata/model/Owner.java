@@ -1,9 +1,17 @@
 package dev.belueu.springbootpetclinicdata.model;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
@@ -17,35 +25,12 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
+    @Builder
+    public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(firstName, lastName);
         this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
         this.telephone = telephone;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
         this.pets = pets;
     }
 }
