@@ -9,9 +9,11 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.mockito.Mockito.*;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
 class RecipeServiceImplTest {
 
@@ -41,4 +43,21 @@ class RecipeServiceImplTest {
         Assertions.assertEquals(2, recipes.size());
         verify(recipeRepo, times(1)).findAll();
     }
+
+    @Test
+    public void getRecipeById() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
+
+        when(recipeRepo.findById(anyLong())).thenReturn(recipeOptional);
+
+        Recipe recipeReturned = recipeService.findById(1L);
+
+        assertNotNull("Null recipe returned", recipeReturned);
+        verify(recipeRepo, times(1)).findById(anyLong());
+        verify(recipeRepo, never()).findAll();
+    }
+
+
 }

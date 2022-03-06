@@ -6,38 +6,18 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7/dist/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7/dist/js/bootstrap.min.js}"></script>
 
 </head>
 <body>
-<!--<h1 th:text="'Recipe App Index Page'">Recipe Index Page</h1>-->
-
-<!--<table>-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>Id</th>-->
-<!--        <th>Description</th>-->
-<!--        <th>Prep Time</th>-->
-<!--        <th>Cook Time</th>-->
-<!--        <th>Servings</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-
-<!--    <tbody>-->
-<!--    <tr th:each="recipe : ${recipes}">-->
-<!--        <td th:text="${recipe.id}">Id</td>-->
-<!--        <td th:text="${recipe.description}">Description</td>-->
-<!--        <td th:text="${recipe.prepTime}">Prep Time</td>-->
-<!--        <td th:text="${recipe.cookTime}">Cook Time</td>-->
-<!--        <td th:text="${recipe.servings}">Servings</td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--</table>-->
 
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
@@ -57,6 +37,7 @@
                                 <th>Prep Time</th>
                                 <th>Cook Time</th>
                                 <th>Servings</th>
+                                <th>View</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -66,20 +47,9 @@
                                 <td th:text="${recipe.prepTime}">Prep Time</td>
                                 <td th:text="${recipe.cookTime}">Cook Time</td>
                                 <td th:text="${recipe.servings}">Servings</td>
+                                <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
                             </tr>
                             </tbody>
-                            <!--                            <tr th:remove="all">-->
-                            <!--                                <td th:text="${recipe.id}">123</td>-->
-                            <!--                                <td th:text="${recipe.description}">Tasty Goodnees 1</td>-->
-                            <!--                            </tr>-->
-                            <!--                            <tr th:remove="all">-->
-                            <!--                                <td th:text="${recipe.id}">12333</td>-->
-                            <!--                                <td th:text="${recipe.description}">Tasty Goodnees 2</td>-->
-                            <!--                            </tr>-->
-                            <!--                            <tr th:each="recipe : ${recipes}">-->
-                            <!--                                <td th:text="${recipe.id}">334</td>-->
-                            <!--                                <td th:text="${recipe.description}">Tasty Goodnees 3</td>-->
-                            <!--                            </tr>-->
                         </table>
                     </div>
                 </div>
