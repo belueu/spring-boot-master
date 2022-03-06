@@ -104,6 +104,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.setPrepTime(10);
         guacRecipe.setCookTime(0);
         guacRecipe.setDifficulty(Difficulty.EASY);
+        guacRecipe.setServings(5);
         guacRecipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon" +
                 "\n" +
                 "2 Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)" +
@@ -147,6 +148,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacosRecipe.setDescription("Spicy Grilled Chicken Taco");
         tacosRecipe.setCookTime(9);
         tacosRecipe.setPrepTime(20);
+        tacosRecipe.setServings(3);
         tacosRecipe.setDifficulty(Difficulty.MEDIUM);
 
         tacosRecipe.setDirections("1 Prepare a gas or charcoal grill for medium-high, direct heat.\n" +
