@@ -22,9 +22,4 @@ public class Category {
 
     public Category() {
     }
-
-    protected boolean canEqual(final Object other) {
-        return other instanceof Category;
-    }
-
 }

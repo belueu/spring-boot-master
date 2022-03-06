@@ -26,7 +26,7 @@ public class Recipe {
     private Difficulty difficulty;
     @Lob
     private Byte[] image;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Ingredient> ingredients = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL)
     private Note note;
@@ -39,15 +39,4 @@ public class Recipe {
                     @JoinColumn(name = "category_id")
             })
     private Set<Category> categories = new HashSet<>();
-
-    public Recipe addIngredient(Ingredient ingredient) {
-        ingredient.setRecipe(this);
-        this.ingredients.add(ingredient);
-        return this;
-    }
-
-    public void setNote(Note note) {
-        this.note = note;
-        note.setRecipe(this);
-    }
 }
