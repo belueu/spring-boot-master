@@ -40,8 +40,8 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         }
     }
 
-    Optional<T> findByLastName(String lastName) {
-        return map.values().stream().filter(lastName::equals).findFirst();
+    T findByLastName(String lastName) {
+        return map.values().stream().filter(lastName::equals).findFirst().orElse(null);
     }
 
     Long newIdValue() {
