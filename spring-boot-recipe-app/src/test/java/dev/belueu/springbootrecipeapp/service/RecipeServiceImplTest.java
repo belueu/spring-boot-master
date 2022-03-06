@@ -38,7 +38,7 @@ class RecipeServiceImplTest {
         when(recipeRepo.findAll()).thenReturn(recipeHashSet.stream().toList());
 
         Set<Recipe> recipes = recipeService.getRecipes();
-        Assertions.assertEquals(3, recipes.size());
+        Assertions.assertEquals(2, recipes.size());
         verify(recipeRepo, times(1)).findAll();
     }
 }
