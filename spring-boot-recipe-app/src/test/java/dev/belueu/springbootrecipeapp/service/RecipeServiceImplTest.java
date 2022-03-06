@@ -1,5 +1,7 @@
 package dev.belueu.springbootrecipeapp.service;
 
+import dev.belueu.springbootrecipeapp.converter.RecipeCommandToRecipe;
+import dev.belueu.springbootrecipeapp.converter.RecipeToRecipeCommand;
 import dev.belueu.springbootrecipeapp.model.Recipe;
 import dev.belueu.springbootrecipeapp.repository.RecipeRepo;
 import org.junit.jupiter.api.Assertions;
@@ -21,11 +23,15 @@ class RecipeServiceImplTest {
 
     @Mock
     RecipeRepo recipeRepo;
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepo);
+        recipeService = new RecipeServiceImpl(recipeRepo, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
