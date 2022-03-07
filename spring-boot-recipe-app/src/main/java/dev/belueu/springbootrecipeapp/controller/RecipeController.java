@@ -2,6 +2,7 @@ package dev.belueu.springbootrecipeapp.controller;
 
 import dev.belueu.springbootrecipeapp.command.RecipeCommand;
 import dev.belueu.springbootrecipeapp.service.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@Slf4j
 @Controller
 public class RecipeController {
 
@@ -43,5 +45,13 @@ public class RecipeController {
         RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
 
         return "redirect:/recipe/" + savedCommand.getId() + "/show";
+    }
+
+    @GetMapping("/recipe/{id}/delete")
+    public String deleteById(@PathVariable Long id) {
+        log.debug("Deleting id: " + id);
+
+        recipeService.deleteById(id);
+        return "redirect:/";
     }
 }
