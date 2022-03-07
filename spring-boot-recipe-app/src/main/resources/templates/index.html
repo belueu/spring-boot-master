@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Recipe App</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -38,6 +42,8 @@
                                 <th>Cook Time</th>
                                 <th>Servings</th>
                                 <th>View</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -48,6 +54,8 @@
                                 <td th:text="${recipe.cookTime}">Cook Time</td>
                                 <td th:text="${recipe.servings}">Servings</td>
                                 <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">delete</a></td>
                             </tr>
                             </tbody>
                         </table>

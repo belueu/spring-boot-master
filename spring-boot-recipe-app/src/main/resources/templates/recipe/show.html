@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Show Recipe</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -78,8 +81,8 @@
                             <div class="col-md-3">
                                 <h5>URL:</h5>
                             </div>
-                            <div class="col-md-3">
-                                <a href="#" th:href="${recipe.url}" th:text="simplyrecipes.com">url</a>
+                            <div class="col-md-3" style="max-width: border-box">
+                                <a href="#" th:href="${recipe.url}" th:text="'Link Here!'">url</a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +156,12 @@
                                     ipsum.</p>
                             </div>
                         </div>
+
                     </div>
+
+                </div>
+                <div class="ui-button" style="margin-bottom: 70px">
+                    <a th:href="@{'/'}" th:text="'Back'">back</a>
                 </div>
             </div>
         </div>
