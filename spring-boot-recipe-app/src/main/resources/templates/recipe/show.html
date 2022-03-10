@@ -30,8 +30,8 @@
                             <div class="col-md-11">
                                 <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
                             </div>
-                            <div class="col-md-1">
-                                <a class="btn btn-default" href="#"
+                            <div class="col-md-12" style="text-align: end; max-width: 100%; height: auto">
+                                <a class="btn-lg btn-default" href="#"
                                    th:href="@{'/'}" role="button">Back</a>
                             </div>
                         </div>
@@ -49,6 +49,16 @@
                                         three
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6" style="text-align: start; max-width: 100%; height: auto">
+                                    <a class="btn btn-success" href="#"
+                                       th:href="@{'/recipe/' + ${recipe.id} + '/image'}" role="button">Change Image</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/static/images/ezgif.com-webp-to-png.png"
+                                         style="max-width: 100%; height: auto">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -101,7 +111,7 @@
                             <div class="col-md-11 ">
                                 <h1 class="panel-title">Ingredients</h1>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-12" style="text-align: end; height: auto">
                                 <a class="btn btn-default" href="#"
                                    th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
                             </div>
