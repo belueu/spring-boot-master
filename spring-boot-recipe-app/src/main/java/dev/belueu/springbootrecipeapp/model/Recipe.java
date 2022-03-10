@@ -1,12 +1,14 @@
 package dev.belueu.springbootrecipeapp.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "recipes")
 public class Recipe {
@@ -39,4 +41,17 @@ public class Recipe {
                     @JoinColumn(name = "category_id")
             })
     private Set<Category> categories = new HashSet<>();
+
+    public void setNote(Note note) {
+        if (note != null) {
+            this.note = note;
+            note.setRecipe(this);
+        }
+    }
+
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
 }
