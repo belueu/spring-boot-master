@@ -6,8 +6,11 @@ import dev.belueu.springbootpetclinicdata.service.OwnerService;
 import dev.belueu.springbootpetclinicdata.service.PetService;
 import dev.belueu.springbootpetclinicdata.service.PetTypeService;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -75,5 +78,16 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        //todo - impl
+        return null;
+    }
+
+    @Override
+    public Page<Owner> findByLastName(String lastName, Pageable pageable) {
+        return null;
     }
 }

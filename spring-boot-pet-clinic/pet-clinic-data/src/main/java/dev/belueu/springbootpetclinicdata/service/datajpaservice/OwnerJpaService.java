@@ -4,9 +4,12 @@ import dev.belueu.springbootpetclinicdata.model.Owner;
 import dev.belueu.springbootpetclinicdata.repository.OwnerRepo;
 import dev.belueu.springbootpetclinicdata.service.OwnerService;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -45,7 +48,12 @@ public class OwnerJpaService implements OwnerService {
     }
 
     @Override
-    public Owner findByLastName(String lastName) {
-        return ownerRepo.findByLastName(lastName).orElse(null);
+    public Page<Owner> findByLastName(String lastName, Pageable pageable) {
+        return ownerRepo.findByLastName(lastName, pageable);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepo.findAllByLastNameLike(lastName);
     }
 }

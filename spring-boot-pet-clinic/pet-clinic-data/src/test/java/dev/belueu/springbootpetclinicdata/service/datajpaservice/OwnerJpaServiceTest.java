@@ -96,15 +96,15 @@ class OwnerJpaServiceTest {
         verify(ownerRepo, times(1)).deleteById(anyLong());
     }
 
-    @Test
-    void findByLastName() {
-
-        when(ownerRepo.findByLastName(any())).thenReturn(Optional.ofNullable(returnOwner));
-
-        Owner smith = ownerJpaService.findByLastName(lastName);
-
-        Assertions.assertEquals(lastName, smith.getLastName());
-
-        verify(ownerRepo).findByLastName(any());
-    }
+//    @Test
+//    void findByLastName() {
+//
+//        when(ownerRepo.findByLastName(any())).thenReturn(Optional.ofNullable(returnOwner));
+//
+//        Owner smith = ownerJpaService.findByLastName(lastName);
+//
+//        Assertions.assertEquals(lastName, smith.getLastName());
+//
+//        verify(ownerRepo).findByLastName(any());
+//    }
 }
